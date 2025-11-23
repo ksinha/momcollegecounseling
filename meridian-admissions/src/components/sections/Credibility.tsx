@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
 const universities = [
@@ -22,15 +23,30 @@ const universities = [
 const carouselItems = [...universities, ...universities, ...universities];
 
 export function Credibility() {
+    const [isMobile, setIsMobile] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     return (
         <section className="py-10 bg-white border-b border-primary/5 overflow-hidden relative">
-            <div className="absolute top-0 left-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-10" />
-            <div className="absolute top-0 right-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10" />
+            <div className="absolute top-0 left-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-            <div className="flex">
+            <div className="flex" ref={containerRef}>
                 <motion.div
-                    className="flex gap-16 md:gap-24 items-center whitespace-nowrap"
-                    animate={{ x: [0, -1920] }}
+                    className="flex gap-16 md:gap-24 items-center whitespace-nowrap px-6"
+                    animate={isMobile ? undefined : { x: [0, -1920] }}
+                    drag={isMobile ? "x" : false}
+                    dragConstraints={containerRef}
                     transition={{
                         repeat: Infinity,
                         ease: "linear",
@@ -47,9 +63,10 @@ export function Credibility() {
                                     src={`https://logo.clearbit.com/${item.domain}`}
                                     alt={`${item.name} logo`}
                                     className="h-full w-full object-contain"
+                                    draggable={false}
                                 />
                             </div>
-                            <span className="font-serif text-xl text-primary font-medium tracking-wide uppercase">
+                            <span className="font-serif text-xl text-primary font-medium tracking-wide uppercase select-none">
                                 {item.name}
                             </span>
                         </div>
