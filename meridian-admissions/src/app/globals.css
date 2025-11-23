@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6b2737;
+  --primary-light: #8b3d4f;
+  --accent-gold: #d4a574;
+  --cream: #faf7f2;
+  --off-white: #f5f1eb;
+  --text-dark: #2a1f1f;
+  --text-mid: #5a4f4f;
+  --shadow: rgba(107, 39, 55, 0.12);
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-text-dark antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
