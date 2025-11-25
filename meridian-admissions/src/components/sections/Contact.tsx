@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type FormData = {
     studentName: string;
@@ -10,14 +10,39 @@ type FormData = {
     email: string;
     phone: string;
     gradeLevel: string;
+    packageOption: string;
     schools: string;
     referral: string;
     message: string;
 };
 
 export function Contact() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>();
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Check for selected package in sessionStorage and pre-fill
+    useEffect(() => {
+        const checkAndFillPackage = () => {
+            if (typeof window !== 'undefined') {
+                const selectedPackage = sessionStorage.getItem('selectedPackage');
+                if (selectedPackage) {
+                    setValue('packageOption', selectedPackage);
+                    // Clear after reading
+                    sessionStorage.removeItem('selectedPackage');
+                }
+            }
+        };
+
+        // Check immediately on mount
+        checkAndFillPackage();
+
+        // Poll for updates every 100ms to catch any package selections
+        const interval = setInterval(checkAndFillPackage, 100);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [setValue]);
 
     const onSubmit = async (data: FormData) => {
         setIsSubmitting(true);
@@ -100,6 +125,20 @@ export function Contact() {
                                 <option value="College Student">College Student</option>
                                 <option value="Graduate Student">Graduate Student</option>
                                 <option value="Post-Graduation Professional">Post-Graduation Professional</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium text-text-mid mb-2">Package Option</label>
+                            <select
+                                {...register("packageOption")}
+                                className="w-full px-4 py-3 bg-white border border-primary/20 rounded-sm focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold transition-all"
+                            >
+                                <option value="">Select Package</option>
+                                <option value="Personal Statement Intensive">Personal Statement Intensive</option>
+                                <option value="Three-School Essay Package">Three-School Essay Package</option>
+                                <option value="Comprehensive Ivy Strategy">Comprehensive Ivy Strategy</option>
+                                <option value="Unsure">Unsure</option>
                             </select>
                         </div>
 

@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { User, Star, GraduationCap, BookOpen, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 const features = [
     {
@@ -75,10 +76,10 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                 <div className={cn("p-3 rounded-full text-white", feature.color)}>
                     <feature.icon size={24} />
                 </div>
-                <h3 className="font-serif text-2xl text-primary">{feature.title}</h3>
+                <h3 className="font-serif text-2xl text-primary font-bold">{feature.title}</h3>
             </div>
 
-            <h3 className="hidden md:block font-serif text-3xl md:text-4xl text-primary mb-6 leading-tight">
+            <h3 className="hidden md:block font-serif text-3xl md:text-4xl text-primary mb-6 leading-tight font-bold">
                 {feature.title}
             </h3>
 
@@ -112,7 +113,7 @@ export function About() {
             <div className="container mx-auto px-6 md:px-12">
 
                 {/* Section Header */}
-                <div className="pt-24 pb-0 md:pt-32 md:pb-0 text-center">
+                <div className="pt-24 pb-0 md:pt-32 md:pb-4 text-center">
                     <p className="text-base md:text-lg tracking-[2px] uppercase text-accent-gold font-semibold">
                         The Meridian Difference
                     </p>
@@ -132,16 +133,9 @@ export function About() {
                     </div>
 
                     {/* Right Column: Sticky Visuals */}
-                    <div className="hidden md:block w-1/2 relative">
-                        <div className="sticky top-0 h-screen flex items-center justify-center py-20">
-                            <div className="relative w-full aspect-square max-h-[600px] bg-white rounded-sm shadow-card border border-primary/5 overflow-hidden flex items-center justify-center p-12 transition-all duration-500">
-                                {/* Background Pattern */}
-                                <div className="absolute inset-0 opacity-[0.03]"
-                                    style={{
-                                        backgroundImage: "radial-gradient(#6b2737 1px, transparent 1px)",
-                                        backgroundSize: "20px 20px"
-                                    }}
-                                />
+                    <div className="hidden md:block w-1/2 relative pt-32 pb-24">
+                        <div className="sticky top-24 flex items-start justify-center">
+                            <div className="relative w-full max-w-md min-h-[300px] max-h-[350px] bg-white rounded-sm shadow-card border border-primary/5 overflow-hidden flex items-center justify-center transition-all duration-500">
 
                                 {features.map((feature, index) => (
                                     <motion.div
@@ -153,19 +147,39 @@ export function About() {
                                             y: activeSection === index ? 0 : 20
                                         }}
                                         transition={{ duration: 0.5 }}
-                                        className="absolute inset-0 flex flex-col items-center justify-center text-center p-12"
+                                        className={cn(
+                                            "absolute inset-0 flex items-center justify-center",
+                                            index === 0 ? "p-0" : "flex-col text-center p-12"
+                                        )}
                                     >
-                                        <div className={cn(
-                                            "w-24 h-24 rounded-full flex items-center justify-center mb-8 shadow-lg",
-                                            feature.color,
-                                            "text-white"
-                                        )}>
-                                            <feature.icon size={48} strokeWidth={1.5} />
-                                        </div>
-                                        <h4 className="font-serif text-3xl text-primary mb-4">
-                                            {feature.title}
-                                        </h4>
-                                        <div className="w-12 h-1 bg-accent-gold/30 rounded-full" />
+                                        {index === 0 ? (
+                                            // Headshot for "One Expert, Complete Attention"
+                                            <div className="relative w-full h-full">
+                                                <Image
+                                                    src="/mom headshot ai.jpeg"
+                                                    alt="Dr. Abha Sinha"
+                                                    fill
+                                                    className="object-cover"
+                                                    style={{ objectPosition: 'center 30%' }}
+                                                    priority
+                                                />
+                                            </div>
+                                        ) : (
+                                            // Icons for other features
+                                            <>
+                                                <div className={cn(
+                                                    "w-24 h-24 rounded-full flex items-center justify-center mb-8 shadow-lg",
+                                                    feature.color,
+                                                    "text-white"
+                                                )}>
+                                                    <feature.icon size={48} strokeWidth={1.5} />
+                                                </div>
+                                                <h4 className="font-serif text-3xl text-primary mb-4">
+                                                    {feature.title}
+                                                </h4>
+                                                <div className="w-12 h-1 bg-accent-gold/30 rounded-full" />
+                                            </>
+                                        )}
                                     </motion.div>
                                 ))}
                             </div>
