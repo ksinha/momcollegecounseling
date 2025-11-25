@@ -21,7 +21,7 @@ const features = [
     },
     {
         id: "specialized",
-        title: "Specialized Expertise for Top Students",
+        title: "Stand Out From The Crowd",
         description: "Admissions are more competitive than ever. My practice is specialized for high-achieving students who need to craft compelling narratives that stand out strategically against other excellent candidates.",
         icon: Star,
         color: "bg-accent-gold",
@@ -33,7 +33,7 @@ const features = [
     },
     {
         id: "comprehensive",
-        title: "Comprehensive Experience Across Your Journey",
+        title: "With You Every Step of the Way",
         description: "From summer programs to undergraduate and graduate admissions, to prestigious scholarships like the Rhodes and Marshall. Whether you start early or join later, I meet you where you are with over 15 years of insight.",
         icon: GraduationCap,
         color: "bg-primary-light",
@@ -70,7 +70,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
     return (
         <div
             ref={ref}
-            className="min-h-[80vh] flex flex-col justify-center py-20"
+            className="min-h-[60vh] flex flex-col justify-center py-12"
         >
             <div className="flex items-center gap-4 mb-6 md:hidden">
                 <div className={cn("p-3 rounded-full text-white", feature.color)}>
@@ -86,15 +86,6 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
             <p className="text-lg text-text-mid leading-relaxed mb-8 max-w-xl">
                 {feature.description}
             </p>
-
-            <ul className="space-y-4">
-                {feature.points.map((point, i) => (
-                    <li key={i} className="flex items-center gap-3 text-text-dark font-medium">
-                        <CheckCircle2 size={20} className="text-accent-gold flex-shrink-0" />
-                        {point}
-                    </li>
-                ))}
-            </ul>
 
             {/* Mobile Visual Placeholder */}
             <div className="mt-10 md:hidden aspect-video rounded-sm overflow-hidden bg-off-white border border-primary/5 flex items-center justify-center relative">
@@ -135,53 +126,118 @@ export function About() {
                     {/* Right Column: Sticky Visuals */}
                     <div className="hidden md:block w-1/2 relative pt-32 pb-24">
                         <div className="sticky top-24 flex items-start justify-center">
-                            <div className="relative w-full max-w-md min-h-[300px] max-h-[350px] bg-white rounded-sm shadow-card border border-primary/5 overflow-hidden flex items-center justify-center transition-all duration-500">
-
-                                {features.map((feature, index) => (
-                                    <motion.div
-                                        key={feature.id}
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        animate={{
-                                            opacity: activeSection === index ? 1 : 0,
-                                            scale: activeSection === index ? 1 : 0.95,
-                                            y: activeSection === index ? 0 : 20
-                                        }}
-                                        transition={{ duration: 0.5 }}
-                                        className={cn(
-                                            "absolute inset-0 flex items-center justify-center",
-                                            index === 0 ? "p-0" : "flex-col text-center p-12"
-                                        )}
-                                    >
-                                        {index === 0 ? (
-                                            // Headshot for "One Expert, Complete Attention"
-                                            <div className="relative w-full h-full">
-                                                <Image
-                                                    src="/mom headshot ai.jpeg"
-                                                    alt="Dr. Abha Sinha"
-                                                    fill
-                                                    className="object-cover"
-                                                    style={{ objectPosition: 'center 30%' }}
-                                                    priority
-                                                />
-                                            </div>
-                                        ) : (
-                                            // Icons for other features
-                                            <>
-                                                <div className={cn(
-                                                    "w-24 h-24 rounded-full flex items-center justify-center mb-8 shadow-lg",
-                                                    feature.color,
-                                                    "text-white"
-                                                )}>
-                                                    <feature.icon size={48} strokeWidth={1.5} />
+                            <div className="relative w-full max-w-md">
+                                {/* Main visual container */}
+                                <div className="relative min-h-[300px] max-h-[350px] bg-white rounded-sm shadow-card border border-primary/5 overflow-hidden flex items-center justify-center transition-all duration-500">
+                                    {features.map((feature, index) => (
+                                        <motion.div
+                                            key={feature.id}
+                                            initial={{ opacity: 0, scale: 0.95 }}
+                                            animate={{
+                                                opacity: activeSection === index ? 1 : 0,
+                                                scale: activeSection === index ? 1 : 0.95,
+                                                y: activeSection === index ? 0 : 20
+                                            }}
+                                            transition={{ duration: 0.5 }}
+                                            className={cn(
+                                                "absolute inset-0 flex items-center justify-center",
+                                                index >= 0 && index <= 3 ? "p-0" : "flex-col text-center p-12"
+                                            )}
+                                        >
+                                            {index === 0 ? (
+                                                // Headshot for "One Expert, Complete Attention"
+                                                <div className="relative w-full h-full">
+                                                    <Image
+                                                        src="/mom headshot ai.jpeg"
+                                                        alt="Dr. Abha Sinha"
+                                                        fill
+                                                        className="object-cover"
+                                                        style={{ objectPosition: 'center 30%' }}
+                                                        priority
+                                                    />
                                                 </div>
-                                                <h4 className="font-serif text-3xl text-primary mb-4">
-                                                    {feature.title}
-                                                </h4>
-                                                <div className="w-12 h-1 bg-accent-gold/30 rounded-full" />
-                                            </>
-                                        )}
-                                    </motion.div>
-                                ))}
+                                            ) : index === 1 ? (
+                                                // Image for "Specialized Expertise for Top Students"
+                                                <div className="relative w-full h-full">
+                                                    <Image
+                                                        src="/Card 2.png"
+                                                        alt="Specialized Expertise"
+                                                        fill
+                                                        className="object-cover"
+                                                        style={{ objectPosition: 'center center' }}
+                                                        unoptimized
+                                                    />
+                                                </div>
+                                            ) : index === 2 ? (
+                                                // Image for third feature
+                                                <div className="relative w-full h-full">
+                                                    <Image
+                                                        src="/Card 3.png"
+                                                        alt={feature.title}
+                                                        fill
+                                                        className="object-cover"
+                                                        style={{ objectPosition: 'center center' }}
+                                                        unoptimized
+                                                    />
+                                                </div>
+                                            ) : index === 3 ? (
+                                                // Image for fourth feature
+                                                <div className="relative w-full h-full">
+                                                    <Image
+                                                        src="/Card 4.png"
+                                                        alt={feature.title}
+                                                        fill
+                                                        className="object-cover"
+                                                        style={{ objectPosition: 'center center' }}
+                                                        unoptimized
+                                                    />
+                                                </div>
+                                            ) : (
+                                                // Icons for any other features (shouldn't reach here)
+                                                <>
+                                                    <div className={cn(
+                                                        "w-24 h-24 rounded-full flex items-center justify-center mb-8 shadow-lg",
+                                                        feature.color,
+                                                        "text-white"
+                                                    )}>
+                                                        <feature.icon size={48} strokeWidth={1.5} />
+                                                    </div>
+                                                    <h4 className="font-serif text-3xl text-primary mb-4">
+                                                        {feature.title}
+                                                    </h4>
+                                                    <div className="w-12 h-1 bg-accent-gold/30 rounded-full" />
+                                                </>
+                                            )}
+                                        </motion.div>
+                                    ))}
+                                </div>
+
+                                {/* Bullets box positioned to the left */}
+                                <div className="absolute -left-[70px] bottom-[55%] z-10">
+                                    {features.map((feature, index) => (
+                                        <motion.div
+                                            key={`bullets-${feature.id}`}
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{
+                                                opacity: activeSection === index ? 1 : 0,
+                                                x: activeSection === index ? 0 : -20
+                                            }}
+                                            transition={{ duration: 0.5 }}
+                                            className="absolute inset-0"
+                                        >
+                                            <div className="bg-white p-6 rounded-sm shadow-lg border border-primary/10 min-w-[280px]">
+                                                <ul className="space-y-3">
+                                                    {feature.points.map((point, i) => (
+                                                        <li key={i} className="flex items-start gap-3 text-text-dark font-medium text-sm">
+                                                            <CheckCircle2 size={18} className="text-accent-gold flex-shrink-0 mt-0.5" />
+                                                            <span>{point}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
