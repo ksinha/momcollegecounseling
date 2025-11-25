@@ -109,11 +109,7 @@ export function Packages() {
                     </div>
                 </div>
 
-                <div className="max-w-3xl mx-auto bg-white p-8 border-l-4 border-accent-gold rounded-sm shadow-sm text-center">
-                    <p className="text-text-mid text-lg leading-relaxed">
-                        All packages include direct, personal attention from Dr. Sinha. No teams. No templates. Just strategic, authentic storytelling that helps you stand out from the crowd.
-                    </p>
-                </div>
+
             </div>
         </section>
     );

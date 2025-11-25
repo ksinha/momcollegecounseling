@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
     { name: "About", href: "#about" },
-    { name: "Success", href: "#credibility" },
     { name: "Services", href: "#packages" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "Contact", href: "#contact" },
@@ -29,19 +28,25 @@ export function Navigation() {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] border-b border-transparent",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] border-b",
                 isScrolled
                     ? "bg-cream/95 backdrop-blur-md shadow-sm border-primary/10 py-4"
-                    : "bg-transparent py-6"
+                    : "bg-white/10 backdrop-blur-md border-white/10 py-6"
             )}
         >
             <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
                 <Link
                     href="/"
-                    className="font-serif text-2xl font-semibold tracking-wide text-primary relative group"
+                    className={cn(
+                        "font-serif text-2xl font-semibold tracking-wide relative group transition-colors duration-300",
+                        isScrolled ? "text-primary" : "text-white"
+                    )}
                 >
                     MERIDIAN ADMISSIONS
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-400 group-hover:w-full" />
+                    <span className={cn(
+                        "absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-400 group-hover:w-full",
+                        isScrolled ? "bg-accent-gold" : "bg-white"
+                    )} />
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -50,10 +55,18 @@ export function Navigation() {
                         <li key={link.name}>
                             <Link
                                 href={link.href}
-                                className="text-text-mid hover:text-primary transition-colors duration-300 text-sm tracking-wider relative group"
+                                className={cn(
+                                    "text-sm tracking-wider relative group transition-colors duration-300",
+                                    isScrolled
+                                        ? "text-text-mid hover:text-primary"
+                                        : "text-white/90 hover:text-white"
+                                )}
                             >
                                 {link.name}
-                                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-accent-gold transition-all duration-300 group-hover:w-full" />
+                                <span className={cn(
+                                    "absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px transition-all duration-300 group-hover:w-full",
+                                    isScrolled ? "bg-accent-gold" : "bg-white"
+                                )} />
                             </Link>
                         </li>
                     ))}
@@ -61,7 +74,10 @@ export function Navigation() {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-primary"
+                    className={cn(
+                        "md:hidden transition-colors duration-300",
+                        isScrolled ? "text-primary" : "text-white"
+                    )}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label="Toggle menu"
                 >

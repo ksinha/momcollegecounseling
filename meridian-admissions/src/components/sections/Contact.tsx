@@ -93,11 +93,13 @@ export function Contact() {
                                 className="w-full px-4 py-3 bg-white border border-primary/20 rounded-sm focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold transition-all"
                             >
                                 <option value="">Select Grade Level</option>
-                                <option value="Sophomore">Sophomore</option>
-                                <option value="Junior">Junior</option>
-                                <option value="Senior">Senior</option>
+                                <option value="High School Sophomore">High School Sophomore</option>
+                                <option value="High School Junior">High School Junior</option>
+                                <option value="High School Senior">High School Senior</option>
                                 <option value="Gap Year">Gap Year</option>
-                                <option value="Graduate School">Graduate School</option>
+                                <option value="College Student">College Student</option>
+                                <option value="Graduate Student">Graduate Student</option>
+                                <option value="Post-Graduation Professional">Post-Graduation Professional</option>
                             </select>
                         </div>
 
