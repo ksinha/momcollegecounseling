@@ -9,41 +9,42 @@ import { Check } from "lucide-react";
 const packages = [
     {
         name: "Personal Statement Intensive",
-        description: "Deep-dive brainstorming + 2–3 rounds of edits",
+        description: "Deep-dive brainstorming + expert guidance to craft your story",
         price: "$2,500",
         period: "One-time service",
         features: [
-            "Comprehensive brainstorming session",
-            "2-3 rounds of detailed editing",
-            "One powerful, compelling essay"
+            "In-depth strategic brainstorming session",
+            "Personalized guidance through multiple drafts",
+            "One powerful, compelling essay that showcases your authentic voice"
         ],
         featured: false,
     },
     {
-        name: "Three-School Essay Package",
-        description: "Common App + supplements for 2 schools",
-        price: "$12,500",
-        period: "Range: $10,000–$15,000 depending on complexity",
+        name: "Focused Essay Suite",
+        description: "Personal statement + supplemental essays for your top choices",
+        price: "$7,500–$15,000",
+        period: "Based on number of schools and supplement requirements",
         features: [
-            "Common App personal statement",
-            "Supplemental essays for 2 schools",
-            "Comprehensive strategy & editing"
+            "Cohesive narrative strategy across your entire application portfolio",
+            "Personal statement that establishes your core story",
+            "Supplemental essays for 2-3 institutions (undergraduate, graduate, or scholarship programs)",
+            "Strategic coordination to ensure each essay complements and strengthens the others"
         ],
         featured: false,
     },
     {
-        name: "Comprehensive Ivy Strategy",
-        description: "Full-season support for top applicants",
+        name: "Elite Admissions Strategy",
+        description: "Comprehensive support to maximize your admission success",
         price: "$20,000",
-        period: "Full-season guidance",
+        period: "Multi-year partnership",
         features: [
+            "Dr. Sinha partners with you to strategically shape your story and application beginning 1-2 years before you apply",
+            "Key summer programs and enrichment opportunities identification and application support",
+            "Activities list development and optimization",
+            "Application strategy & school selection tailored to your unique profile",
             "Personal statement development",
             "All supplemental essays",
-            "Activities list optimization",
-            "Application strategy & school selection",
-            "Key summer programs identification",
-            "Interview prep with Dr. Sinha AND real college interviewers",
-            "Complete personalized guidance"
+            "Interview preparation with Dr. Sinha AND practice sessions with real college interviewers"
         ],
         featured: true,
     },
@@ -56,8 +57,8 @@ export function Packages() {
         <div
             key={index}
             className={cn(
-                "bg-white p-8 rounded-sm shadow-card border transition-all duration-500 relative group h-full flex flex-col",
-                pkg.featured ? "border-accent-gold scale-100 md:scale-105 z-10 shadow-xl" : "border-primary/5 hover:border-primary/20"
+                "bg-white p-8 rounded-sm shadow-card border transition-all duration-500 relative group h-full flex flex-col hover:-translate-y-2 cursor-pointer",
+                pkg.featured ? "border-accent-gold scale-100 md:scale-105 z-10 shadow-xl hover:shadow-2xl" : "border-primary/5 hover:border-accent-gold hover:shadow-lg"
             )}
         >
             {pkg.featured && (
@@ -135,8 +136,8 @@ export function Packages() {
                             <div
                                 key={index}
                                 className={cn(
-                                    "bg-white p-8 rounded-sm shadow-card border transition-all duration-500 relative group h-full flex flex-col",
-                                    pkg.featured ? "border-accent-gold scale-105 z-10 shadow-xl" : "border-primary/5 hover:border-primary/20",
+                                    "bg-white p-8 rounded-sm shadow-card border transition-all duration-500 relative group h-full flex flex-col hover:-translate-y-2 cursor-pointer",
+                                    pkg.featured ? "border-accent-gold scale-105 z-10 shadow-xl hover:shadow-2xl" : "border-primary/5 hover:border-accent-gold hover:shadow-lg",
                                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                                 )}
                                 style={{ transitionDelay: `${index * 100}ms` }}

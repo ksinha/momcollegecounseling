@@ -123,10 +123,11 @@ export function Carousel<T>({
                             setCurrentIndex(index);
                         }}
                         className={cn(
-                            "w-2.5 h-2.5 rounded-full transition-all duration-300",
+                            "rounded-full transition-all duration-300 cursor-pointer",
+                            "p-2", // Larger touch target
                             index === currentIndex
-                                ? "bg-primary w-8"
-                                : "bg-primary/20 hover:bg-primary/40"
+                                ? "bg-primary w-10 h-3" // Active dot - elongated and darker
+                                : "bg-primary/30 w-3 h-3 hover:bg-primary/50" // Inactive dots - more visible
                         )}
                         aria-label={`Go to slide ${index + 1}`}
                     />
