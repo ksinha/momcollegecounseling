@@ -59,7 +59,8 @@ export function Contact() {
                 alert("Message sent successfully!");
                 reset();
             } else {
-                alert("Failed to send message. Please try again.");
+                const errorData = await response.json();
+                alert(`Failed to send message: ${errorData.error}`);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
