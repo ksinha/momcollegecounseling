@@ -122,10 +122,7 @@ export function Packages() {
 
                 <div ref={ref}>
                     {/* Mobile Carousel */}
-                    <div className={cn(
-                        "md:hidden",
-                        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 transition-all duration-700"
-                    )}>
+                    <div className="md:hidden">
                         <Carousel
                             items={packages}
                             renderItem={renderPackageCard}

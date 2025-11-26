@@ -21,13 +21,15 @@ export function Carousel<T>({
     const [direction, setDirection] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+    const hasResetRef = useRef(false);
     const isInView = useInView(containerRef, { amount: 0.5 });
 
-    // Reset to first slide when section comes into view
+    // Reset to first slide when section comes into view (only once)
     useEffect(() => {
-        if (isInView) {
+        if (isInView && !hasResetRef.current) {
             setCurrentIndex(0);
             setDirection(0);
+            hasResetRef.current = true;
         }
     }, [isInView]);
 
@@ -90,12 +92,12 @@ export function Carousel<T>({
             onTouchEnd={() => setIsPaused(false)}
         >
             <div className="relative w-full overflow-hidden py-12">
-                <AnimatePresence initial={false} custom={direction}>
+                <AnimatePresence initial={false} mode="wait" custom={direction}>
                     <motion.div
                         key={currentIndex}
                         custom={direction}
                         variants={variants}
-                        initial="enter"
+                        initial={hasResetRef.current ? "enter" : false}
                         animate="center"
                         exit="exit"
                         transition={{
