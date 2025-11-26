@@ -58,7 +58,7 @@ export function Packages() {
             key={index}
             className={cn(
                 "bg-white p-8 rounded-sm shadow-card border transition-all duration-500 relative group h-full flex flex-col hover:-translate-y-2 cursor-pointer",
-                pkg.featured ? "border-accent-gold scale-100 md:scale-105 z-10 shadow-xl hover:shadow-2xl" : "border-primary/5 hover:border-accent-gold hover:shadow-lg"
+                pkg.featured ? "border-accent-gold scale-100 md:scale-105 z-10 shadow-xl hover:shadow-2xl pt-8" : "border-primary/5 hover:border-accent-gold hover:shadow-lg"
             )}
         >
             {pkg.featured && (
@@ -122,7 +122,10 @@ export function Packages() {
 
                 <div ref={ref}>
                     {/* Mobile Carousel */}
-                    <div className="md:hidden">
+                    <div className={cn(
+                        "md:hidden",
+                        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 transition-all duration-700"
+                    )}>
                         <Carousel
                             items={packages}
                             renderItem={renderPackageCard}

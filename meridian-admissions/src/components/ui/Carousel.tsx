@@ -83,13 +83,13 @@ export function Carousel<T>({
     return (
         <div
             ref={containerRef}
-            className={cn("relative w-full overflow-hidden", className)}
+            className={cn("relative w-full", className)}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setIsPaused(false)}
         >
-            <div className="relative min-h-[400px] w-full">
+            <div className="relative w-full overflow-hidden py-12">
                 <AnimatePresence initial={false} custom={direction}>
                     <motion.div
                         key={currentIndex}
@@ -106,7 +106,7 @@ export function Carousel<T>({
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={1}
                         onDragEnd={handleDragEnd}
-                        className="absolute w-full h-full"
+                        className="w-full"
                     >
                         {renderItem(items[currentIndex], currentIndex)}
                     </motion.div>

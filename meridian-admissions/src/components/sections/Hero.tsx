@@ -57,16 +57,16 @@ export function Hero() {
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                    className="space-y-6 mt-32 lg:mt-64"
+                    className="space-y-6 mt-8 lg:mt-64"
                 >
                     {/* Achievement Card */}
-                    <div className="bg-white/75 backdrop-blur-xl border border-white/80 p-10 md:p-14 rounded-sm shadow-card text-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 max-w-xl mx-auto lg:mx-0">
+                    <div className="bg-white/75 backdrop-blur-xl border border-white/80 p-5 md:p-14 rounded-sm shadow-card text-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 max-w-xl mx-auto lg:mx-0">
                         <div className="relative z-10">
-                            <div className="mb-4 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
-                                <span className="font-serif text-5xl lg:text-6xl font-bold text-primary drop-shadow-sm">100%</span>
-                                <span className="font-serif text-2xl lg:text-3xl font-bold text-primary uppercase tracking-wide">Success Rate</span>
+                            <div className="mb-3 md:mb-4 flex flex-wrap items-baseline justify-center gap-x-2 md:gap-x-3 gap-y-1">
+                                <span className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-primary drop-shadow-sm">100%</span>
+                                <span className="font-serif text-xl md:text-2xl lg:text-3xl font-bold text-primary uppercase tracking-wide">Success Rate</span>
                             </div>
-                            <p className="text-primary/80 text-lg leading-relaxed font-medium">
+                            <p className="text-primary/80 text-sm md:text-lg leading-relaxed font-medium">
                                 In today&apos;s competitive admissions landscape, all of our students have gotten into one of their top 5 choices.
                             </p>
                         </div>

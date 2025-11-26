@@ -87,10 +87,55 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                 {feature.description}
             </p>
 
-            {/* Mobile Visual Placeholder */}
-            <div className="mt-10 md:hidden aspect-video rounded-sm overflow-hidden bg-off-white border border-primary/5 flex items-center justify-center relative">
-                <div className={cn("absolute inset-0 opacity-10", feature.color)} />
-                <feature.icon size={48} className="text-primary/20" />
+            {/* Mobile Visual */}
+            <div className="mt-10 md:hidden aspect-video rounded-sm overflow-hidden bg-white border border-primary/5 relative">
+                {index === 0 ? (
+                    <Image
+                        src="/mom headshot ai.jpeg"
+                        alt="Dr. Abha Sinha"
+                        fill
+                        className="object-cover"
+                        style={{ objectPosition: 'center 30%' }}
+                    />
+                ) : index === 1 ? (
+                    <Image
+                        src="/Card 2.png"
+                        alt={feature.title}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                    />
+                ) : index === 2 ? (
+                    <Image
+                        src="/Card 3.png"
+                        alt={feature.title}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                    />
+                ) : (
+                    <Image
+                        src="/Card 4.png"
+                        alt={feature.title}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                    />
+                )}
+
+                {/* Bullets box overlay - positioned at bottom left */}
+                <div className="absolute left-0 bottom-4 z-10">
+                    <div className="bg-white p-6 rounded-sm shadow-lg border border-primary/10 min-w-[240px]">
+                        <ul className="space-y-3">
+                            {feature.points.map((point, i) => (
+                                <li key={i} className="flex items-start gap-3 text-text-dark font-medium text-sm">
+                                    <CheckCircle2 size={18} className="text-accent-gold flex-shrink-0 mt-0.5" />
+                                    <span>{point}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     );
