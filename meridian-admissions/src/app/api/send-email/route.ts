@@ -6,11 +6,17 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { studentName, parentName, email, phone, gradeLevel, packageOption, schools, referral, message } = body;
 
+        console.log('Attempting to send email...');
+        console.log('User:', process.env.EMAIL_USER);
+
+        // Strip spaces from password just in case
+        const password = process.env.EMAIL_PASS?.replace(/\s/g, '');
+
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                pass: password,
             },
         });
 

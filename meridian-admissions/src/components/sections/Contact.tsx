@@ -17,7 +17,7 @@ type FormData = {
 };
 
 export function Contact() {
-    const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>();
+    const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm<FormData>();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Check for selected package in sessionStorage and pre-fill
@@ -57,8 +57,7 @@ export function Contact() {
 
             if (response.ok) {
                 alert("Message sent successfully!");
-                // Optional: reset form here if desired
-                // reset(); 
+                reset();
             } else {
                 alert("Failed to send message. Please try again.");
             }
