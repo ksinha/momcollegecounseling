@@ -33,7 +33,7 @@ export function Carousel<T>({
 
     // Auto-play logic
     useEffect(() => {
-        if (isPaused || !isInView) return;
+        if (isPaused || !isInView || autoPlayInterval === 0) return;
 
         const timer = setInterval(() => {
             setDirection(1);

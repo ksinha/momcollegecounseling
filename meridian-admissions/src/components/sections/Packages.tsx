@@ -130,6 +130,7 @@ export function Packages() {
                             items={packages}
                             renderItem={renderPackageCard}
                             className="pb-12"
+                            autoPlayInterval={0}
                         />
                     </div>
 
