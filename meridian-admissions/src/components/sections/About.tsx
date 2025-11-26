@@ -124,7 +124,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                 )}
 
                 {/* Bullets box overlay - positioned at bottom left */}
-                <div className="absolute left-0 bottom-4 z-10 w-[40%]">
+                <div className="absolute left-0 bottom-4 z-10 w-[45%]">
                     <div className="bg-white p-4 rounded-sm shadow-lg border border-primary/10 w-full">
                         <ul className="space-y-3">
                             {feature.points.map((point, i) => (
