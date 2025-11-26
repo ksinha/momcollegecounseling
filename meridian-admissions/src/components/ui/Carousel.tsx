@@ -126,8 +126,8 @@ export function Carousel<T>({
                             "rounded-full transition-all duration-300 cursor-pointer",
                             "p-2", // Larger touch target
                             index === currentIndex
-                                ? "bg-primary w-10 h-3" // Active dot - elongated and darker
-                                : "bg-primary/30 w-3 h-3 hover:bg-primary/50" // Inactive dots - more visible
+                                ? "bg-primary w-10 h-3" // Active dot - filled and elongated
+                                : "w-3 h-3 border-2 border-primary/60 hover:border-primary hover:bg-primary/10" // Inactive dots - outlined and visible
                         )}
                         aria-label={`Go to slide ${index + 1}`}
                     />

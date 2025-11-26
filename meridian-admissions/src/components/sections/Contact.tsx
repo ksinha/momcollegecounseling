@@ -136,8 +136,8 @@ export function Contact() {
                             >
                                 <option value="">Select Package</option>
                                 <option value="Personal Statement Intensive">Personal Statement Intensive</option>
-                                <option value="Three-School Essay Package">Three-School Essay Package</option>
-                                <option value="Comprehensive Ivy Strategy">Comprehensive Ivy Strategy</option>
+                                <option value="Focused Essay Suite">Focused Essay Suite</option>
+                                <option value="Elite Admissions Strategy">Elite Admissions Strategy</option>
                                 <option value="Unsure">Unsure</option>
                             </select>
                         </div>
