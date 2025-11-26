@@ -99,7 +99,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                     />
                 ) : index === 1 ? (
                     <Image
-                        src="/Card 2.png"
+                        src="/Card 2 mobile.png"
                         alt={feature.title}
                         fill
                         className="object-cover"
@@ -107,7 +107,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                     />
                 ) : index === 2 ? (
                     <Image
-                        src="/Card 3.png"
+                        src="/Card 3 mobile.png"
                         alt={feature.title}
                         fill
                         className="object-cover"
@@ -115,7 +115,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                     />
                 ) : (
                     <Image
-                        src="/Card 4.png"
+                        src="/Card 4 mobile.png"
                         alt={feature.title}
                         fill
                         className="object-cover"
@@ -124,7 +124,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                 )}
 
                 {/* Bullets box overlay - positioned at bottom left */}
-                <div className="absolute left-0 bottom-4 z-10 w-[45%]">
+                <div className="absolute left-0 bottom-4 z-10 w-[60%]">
                     <div className="bg-white p-4 rounded-sm shadow-lg border border-primary/10 w-full">
                         <ul className="space-y-3">
                             {feature.points.map((point, i) => (
