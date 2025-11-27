@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
 
 type FormData = {
     studentName: string;
@@ -47,24 +48,31 @@ export function Contact() {
     const onSubmit = async (data: FormData) => {
         setIsSubmitting(true);
         try {
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
+            const templateParams = {
+                student_name: data.studentName,
+                parent_name: data.parentName,
+                email: data.email,
+                phone: data.phone,
+                grade_level: data.gradeLevel,
+                package_option: data.packageOption,
+                schools: data.schools,
+                referral: data.referral,
+                message: data.message,
+                reply_to: data.email,
+            };
 
-            if (response.ok) {
-                alert("Message sent successfully!");
-                reset();
-            } else {
-                const errorData = await response.json();
-                alert(`Failed to send message: ${errorData.error}`);
-            }
-        } catch (error) {
+            await emailjs.send(
+                'service_8pcw86n',
+                'template_41exyue',
+                templateParams,
+                'gzCK16nRjR_wgCJk3'
+            );
+
+            alert("Message sent successfully!");
+            reset();
+        } catch (error: any) {
             console.error('Error submitting form:', error);
-            alert("An error occurred. Please try again.");
+            alert(`Failed to send message: ${error.text || error.message || 'Unknown error'}`);
         } finally {
             setIsSubmitting(false);
         }
