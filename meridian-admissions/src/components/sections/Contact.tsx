@@ -72,7 +72,7 @@ export function Contact() {
             reset();
         } catch (error: any) {
             console.error('Error submitting form:', error);
-            alert(`Failed to send message: ${error.text || error.message || 'Unknown error'}`);
+            alert(`EmailJS Error: ${error.text || error.message || 'Unknown error'}`);
         } finally {
             setIsSubmitting(false);
         }
