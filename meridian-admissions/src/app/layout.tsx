@@ -18,6 +18,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://meridianadmissions.com'),
     title: "Meridian Admissions | Elite College Counseling - DC, MD, VA",
     description: "Dr. Abha Sinha provides personalized, elite college counseling in DC, Maryland, and Virginia for ambitious students seeking admission to Ivy League, Ivy Plus universities, undergraduate and graduate programs.",
     keywords: [
@@ -75,7 +76,6 @@ export default function RootLayout({
         "name": "Meridian Admissions",
         "description": "Elite college counseling and admissions consulting for Ivy League, Ivy Plus, undergraduate and graduate admissions",
         "url": "https://meridianadmissions.com",
-        "telephone": "+1-XXX-XXX-XXXX",
         "email": "abhasinha105@gmail.com",
         "priceRange": "$$$$",
         "areaServed": {
@@ -101,7 +101,7 @@ export default function RootLayout({
     };
 
     return (
-        <html lang="en" className="scroll-smooth">
+        <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
                 <script
                     type="application/ld+json"

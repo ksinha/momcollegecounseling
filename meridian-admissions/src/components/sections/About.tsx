@@ -91,7 +91,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
             <div className="mt-10 md:hidden aspect-video rounded-sm overflow-hidden bg-white border border-primary/5 relative">
                 {index === 0 ? (
                     <Image
-                        src="/Card 1.jpg"
+                        src="/Card 1 mobile.jpeg"
                         alt="Dr. Abha Sinha"
                         fill
                         className="object-cover"
@@ -100,7 +100,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                     />
                 ) : index === 1 ? (
                     <Image
-                        src="/Card 2 mobile.png"
+                        src="/Card 2 mobile.jpg"
                         alt={feature.title}
                         fill
                         className="object-cover"
@@ -108,7 +108,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                     />
                 ) : index === 2 ? (
                     <Image
-                        src="/Card 3 mobile.png"
+                        src="/Card 3 mobile.jpg"
                         alt={feature.title}
                         fill
                         className="object-cover"
@@ -116,7 +116,7 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                     />
                 ) : (
                     <Image
-                        src="/Card 4 mobile.png"
+                        src="/Card 4 mobile.jpg"
                         alt={feature.title}
                         fill
                         className="object-cover"
@@ -194,7 +194,7 @@ export function About() {
                                                 // Headshot for "One Expert, Complete Attention"
                                                 <div className="relative w-full h-full">
                                                     <Image
-                                                        src="/Card 1.jpg"
+                                                        src="/Card 1 mobile.jpeg"
                                                         alt="Dr. Abha Sinha"
                                                         fill
                                                         className="object-cover"
@@ -207,7 +207,7 @@ export function About() {
                                                 // Image for "Specialized Expertise for Top Students"
                                                 <div className="relative w-full h-full">
                                                     <Image
-                                                        src="/Card 2.png"
+                                                        src="/Card 2.jpg"
                                                         alt="Specialized Expertise"
                                                         fill
                                                         className="object-cover"
@@ -219,7 +219,7 @@ export function About() {
                                                 // Image for third feature
                                                 <div className="relative w-full h-full">
                                                     <Image
-                                                        src="/Card 3.png"
+                                                        src="/Card 3.jpg"
                                                         alt={feature.title}
                                                         fill
                                                         className="object-cover"
@@ -231,7 +231,7 @@ export function About() {
                                                 // Image for fourth feature
                                                 <div className="relative w-full h-full">
                                                     <Image
-                                                        src="/Card 4.png"
+                                                        src="/Card 4.jpg"
                                                         alt={feature.title}
                                                         fill
                                                         className="object-cover"
