@@ -11,7 +11,7 @@ export function Hero() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/hero-bg.png"
+                    src="/hero-bg.jpg"
                     alt="Meridian Admissions Background"
                     fill
                     className="object-cover object-center"

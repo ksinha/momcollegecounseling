@@ -91,8 +91,8 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
             <div className="mt-10 md:hidden aspect-video rounded-sm overflow-hidden bg-white border border-primary/5 relative">
                 {index === 0 ? (
                     <Image
-                        src="/Card 1 mobile.jpeg"
-                        alt="Dr. Abha Sinha"
+                        src="/Card 1 mobile optimized.jpg"
+                        alt={feature.title}
                         fill
                         className="object-cover"
                         style={{ objectPosition: 'center 30%' }}
@@ -190,12 +190,11 @@ export function About() {
                                                 // Headshot for "One Expert, Complete Attention"
                                                 <div className="relative w-full h-full">
                                                     <Image
-                                                        src="/Card 1 mobile.jpeg"
+                                                        src="/Card 1 mobile optimized.jpg"
                                                         alt="Dr. Abha Sinha"
                                                         fill
                                                         className="object-cover"
                                                         style={{ objectPosition: 'center 30%' }}
-                                                        priority
                                                     />
                                                 </div>
                                             ) : index === 1 ? (
