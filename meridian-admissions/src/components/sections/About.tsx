@@ -96,7 +96,6 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                         fill
                         className="object-cover"
                         style={{ objectPosition: 'center 30%' }}
-                        unoptimized
                     />
                 ) : index === 1 ? (
                     <Image
@@ -104,7 +103,6 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                         alt={feature.title}
                         fill
                         className="object-cover"
-                        unoptimized
                     />
                 ) : index === 2 ? (
                     <Image
@@ -112,7 +110,6 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                         alt={feature.title}
                         fill
                         className="object-cover"
-                        unoptimized
                     />
                 ) : (
                     <Image
@@ -120,7 +117,6 @@ function FeatureSection({ feature, index, setActiveSection }: { feature: typeof 
                         alt={feature.title}
                         fill
                         className="object-cover"
-                        unoptimized
                     />
                 )}
 
@@ -200,7 +196,6 @@ export function About() {
                                                         className="object-cover"
                                                         style={{ objectPosition: 'center 30%' }}
                                                         priority
-                                                        unoptimized
                                                     />
                                                 </div>
                                             ) : index === 1 ? (
@@ -212,7 +207,6 @@ export function About() {
                                                         fill
                                                         className="object-cover"
                                                         style={{ objectPosition: 'center center' }}
-                                                        unoptimized
                                                     />
                                                 </div>
                                             ) : index === 2 ? (
@@ -224,7 +218,6 @@ export function About() {
                                                         fill
                                                         className="object-cover"
                                                         style={{ objectPosition: 'center center' }}
-                                                        unoptimized
                                                     />
                                                 </div>
                                             ) : index === 3 ? (
@@ -236,7 +229,6 @@ export function About() {
                                                         fill
                                                         className="object-cover"
                                                         style={{ objectPosition: 'center center' }}
-                                                        unoptimized
                                                     />
                                                 </div>
                                             ) : (
